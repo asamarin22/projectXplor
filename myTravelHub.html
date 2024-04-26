@@ -37,7 +37,7 @@
             newTab.setAttribute("onclick", "openTab('tab" + newTabNumber + "')");
             document.querySelector(".vertical-tabs").appendChild(newTab);
 
-            // You might want to initialize content for the new tab here as well
+            // Initialize content for the tab
             var newTabContent = document.createElement("div");
             newTabContent.id = "tab" + newTabNumber;
             newTabContent.className = "tab-content";
@@ -51,6 +51,7 @@
                 <p>Timezone: ${timezone}</p>
                 <p>Time of Flight: ${timeOfFlight}</p>
             `;
+            
             document.getElementById("content").appendChild(newTabContent);
         }
 
@@ -87,8 +88,6 @@
  
     <header>Project XPlor</header>
 
-    <header class="secondary">Sights and sounds</header>
-
     <!-- H1 means 1st level heading -->
     <h1>Current Trip</h1>
 
@@ -100,10 +99,11 @@
 
 
     <div class="vertical-tabs">
-        <!--<div class="tab" onclick="openTab('tab1')">Flight 1</div>
-        <div class="tab" onclick="openTab('tab2')">Flight 2</div>
-        <div class="tab" onclick="openTab('tab3')">Flight 3</div>-->
+        <div class="tab" onclick="openTab('tab1')">Flight 1</div>
+        
     </div>
+
+    
     
     <!--<div id="tab1" class="tab-content" style="display: none;">
         Content for Tab 1
@@ -128,15 +128,30 @@
       <ul>
          <!-- LI stands for list item -->
          <li><a href="addStep.html">Add another Step to your Journey </a></li>
+         <li><a href="newTrip.html">Create New Trip </a></li>
+         <li><a href="index.html">Home </a></li>
          <li><a href="stores.html">View Map </a></li>
          <li><a href="stores.html">View My Timeline </a></li>
-         <li><a href="newTrip.html">Create New Trip </a></li>
+         
       </ul>
     </nav>
 
     
 
+    
+
     <footer>Project XPlor </footer>
+
+    <div id="tab1" class="tab-content" style="display: none;">
+        <p>Firstname: Aleksandr</p>
+        <p>Lastname: Samarin</p>
+        <p>Date of Birth: 06/21/2003</p>
+        <p>Date of Flight: 05/15/2024</p>
+        <p>Flight Number: BA536</p>
+        <p>Timezone: America/Denver (UTC-07:00)</p>
+        <p>Time of Flight: 17:45</p>
+    </div>
+
     </div>
 </body>
 </html>

@@ -25,12 +25,10 @@
    
     <!-- Navigation buttons -->
     <nav id="main_nav">
-      <ul>
-         <!-- LI stands for list item -->
-         <li><a href="newTrip.html">Start your Journey! </a></li>
-         <!--Is grayed out if there are no steps (User did not start a new journey)-->
-         <li><a href="myTravelHub.html">View Current Trip </a></li>
-      </ul>
+        <ul>
+            <li><a href="newTrip.html" id="start_journey_btn">Start your Journey!</a></li>
+            <li><a href="myTravelHub.html" id="view_trip_btn">View Current Trip</a></li>
+        </ul>
     </nav>
 
 
@@ -59,5 +57,37 @@
     
     <footer>Project XPlor </footer>
     </div>
+
+    <script>
+        // Get references to the buttons
+        var startJourneyBtn = document.getElementById("start_journey_btn");
+        var viewTripBtn = document.getElementById("view_trip_btn");
+
+        // Function to enable the view trip button
+        function enableViewTripButton() {
+            // Enable the view trip button
+            viewTripBtn.classList.remove("disabled");
+            // Store in local storage that the button has been enabled
+            localStorage.setItem("tripButtonEnabled", true);
+        }
+
+        // Add event listener to the start journey button
+        startJourneyBtn.addEventListener("click", function() {
+            // Enable the view trip button when the start journey button is clicked
+            enableViewTripButton();
+        });
+
+        // Check if the view trip button was enabled before when the page loads
+        window.onload = function() {
+            var tripButtonEnabled = localStorage.getItem("tripButtonEnabled");
+            if (tripButtonEnabled) {
+                // If the button was enabled before, enable it again
+                enableViewTripButton();
+            } else {
+                // Otherwise, disable the view trip button
+                viewTripBtn.classList.add("disabled");
+            }
+        };
+    </script>
 </body>
 </html>

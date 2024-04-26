@@ -120,6 +120,11 @@ footer {
    border: 1px solid #666; /* dark outline */
 }
 
+#view_trip_btn.disabled {
+    pointer-events: none; /* Disable pointer events */
+    color: gray; /* Change color to indicate disabled state */
+}
+
 #newTrip_nav ul { 
     padding-left: 350px;
     padding-right: 350px;
