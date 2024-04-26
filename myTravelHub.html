@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="style.css" />
+    
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <title> Project Xplor </title>
+
+    <script>
+        // Function to parse URL parameters
+        function getUrlParams() {
+            var params = {};
+            var queryString = window.location.search.substring(1);
+            var keyValuePairs = queryString.split('&');
+            for (var i = 0; i < keyValuePairs.length; i++) {
+                var keyValuePair = keyValuePairs[i].split('=');
+                params[keyValuePair[0]] = decodeURIComponent(keyValuePair[1]);
+            }
+            return params;
+        }
+
+        // Function to add a new tab with form data
+        function addNewTab(firstName, lastName, dob, dateOfFlight, flightNum, timezone, timeOfFlight) {
+            console.log("New Tab Data:");
+            console.log("Firstname:", firstName);
+            console.log("Lastname:", lastName);
+            console.log("Date of Birth:", dob);
+            console.log("Date of Flight:", dateOfFlight);
+            console.log("Timezone:", timezone);
+            console.log("Time of Flight:", timeOfFlight);
+
+            var newTabNumber = document.getElementsByClassName("tab").length + 1;
+            var newTab = document.createElement("div");
+            newTab.className = "tab";
+            newTab.textContent = "Flight " + newTabNumber;
+            newTab.setAttribute("onclick", "openTab('tab" + newTabNumber + "')");
+            document.querySelector(".vertical-tabs").appendChild(newTab);
+
+            // You might want to initialize content for the new tab here as well
+            var newTabContent = document.createElement("div");
+            newTabContent.id = "tab" + newTabNumber;
+            newTabContent.className = "tab-content";
+            newTabContent.style.display = "none";
+            newTabContent.innerHTML = `
+                <p>Firstname: ${firstName}</p>
+                <p>Lastname: ${lastName}</p>
+                <p>Date of Birth: ${dob}</p>
+                <p>Date of Flight: ${dateOfFlight}</p>
+                <p>Flight Number: ${flightNum}</p>
+                <p>Timezone: ${timezone}</p>
+                <p>Time of Flight: ${timeOfFlight}</p>
+            `;
+            document.getElementById("content").appendChild(newTabContent);
+        }
+
+        
+
+        // Parse URL parameters and add new tab on page load
+        window.onload = function() {
+            console.log("Page loaded");
+            var params = getUrlParams();
+            console.log("URL Parameters:", params);
+            addNewTab(params.firstName, params.lastName, params.dob, params.dateOfFlight, params.flightNum, params.timezone, params.timeOfFlight);
+        };
+
+        // Function to switch tabs
+        function openTab(tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.className += " active";
+        }
+    </script>
+</head>
+
+<body>
+    <!-- HTML5 article tag for content -->
+    <div id="content">
+ 
+    <header>Project XPlor</header>
+
+    <header class="secondary">Sights and sounds</header>
+
+    <!-- H1 means 1st level heading -->
+    <h1>Current Trip</h1>
+
+    <!--Slightly larger than the og header-->
+    <header>Trip Sections</header>
+
+
+
+
+
+    <div class="vertical-tabs">
+        <!--<div class="tab" onclick="openTab('tab1')">Flight 1</div>
+        <div class="tab" onclick="openTab('tab2')">Flight 2</div>
+        <div class="tab" onclick="openTab('tab3')">Flight 3</div>-->
+    </div>
+    
+    <!--<div id="tab1" class="tab-content" style="display: none;">
+        Content for Tab 1
+    </div>
+    <div id="tab2" class="tab-content" style="display: none;">
+        Content for Tab 2
+    </div>
+    <div id="tab3" class="tab-content" style="display: none;">
+        Content for Tab 3
+    </div>-->
+    
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+   
+    <!-- Navigation buttons -->
+    <nav id="addFlight_nav">
+      <ul>
+         <!-- LI stands for list item -->
+         <li><a href="addStep.html">Add another Step to your Journey </a></li>
+         <li><a href="stores.html">View Map </a></li>
+         <li><a href="stores.html">View My Timeline </a></li>
+         <li><a href="newTrip.html">Create New Trip </a></li>
+      </ul>
+    </nav>
+
+    
+
+    <footer>Project XPlor </footer>
+    </div>
+</body>
+</html>

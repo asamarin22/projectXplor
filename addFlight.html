@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="style.css"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <title> Project Xplor </title>
+</head>
+
+<body>
+    <!-- HTML5 article tag for content -->
+    <div id="content">
+ 
+    <header>Project XPlor</header>
+
+    <!-- H1 means 1st level heading -->
+    <h1 class="secondary">Provide Flight Information</h1>
+    
+    <!-- P stands for paragraph -->
+    <p>Next is to add flight details. Use your phone...</p>
+   
+    <!-- Navigation buttons -->
+    <nav id="addFlight_nav">
+      <ul>
+         <!-- LI stands for list item -->
+         <li><a href="buttons.html">Upload From Phone </a></li>
+         <li><a href="stores.html">Take a Photo</a></li>
+      </ul>
+    </nav>
+
+    <!--Change this to slightly larger text-->
+    <header>OR...</header>
+
+    <h1 class="tertiary">Enter Manually</h1>
+
+
+    <!-- Text box stuff here-->
+    <!--Display of First, Last, DoB-->
+    <!--First time, use a textbox-->
+    <!--Date of flight, Time Zone, Time of Flight-->
+
+    
+
+    
+    <form action="myTravelHub.html" method="get" id="travelForm">
+        <label for="firstName">Firstname:</label>
+        <input type="text" id="firstName" name="firstName" required>
+        <br>
+        <label for="lastName">Lastname:</label>
+        <input type="text" id="lastName" name="lastName" required>
+        <br>
+        <label for="dob">Date of Flight (MM/DD/YYYY):</label>
+        <input type="text" id="dob" name="dob" pattern="\d{2}/\d{2}/\d{4}" title="Please enter a date in the format MM/DD/YYYY" placeholder="MM/DD/YYY" required>
+        <br>
+        <h1 class="tertiary">Flight details</h1>
+        <label for="dateOfFlight">Date of Flight (MM/DD/YYYY):</label>
+        <input type="text" id="dateOfFlight" name="dateOfFlight" pattern="\d{2}/\d{2}/\d{4}" title="Please enter a date in the format MM/DD/YYYY" placeholder="MM/DD/YYY">
+        <br>
+        <label for="flightNum">Flight Number:</label>
+        <input type="text" id="flightNum" name="flightNum" required>
+        <br>
+    
+        <!-- TimeZone Selector -->
+        <label for="timezone">Select a Timezone:</label>
+        <select id="timezone" name="timezone">
+            <option value="Pacific/Midway (UTC-11:00)">(UTC-11:00) Pacific/Midway</option>
+            <option value="Pacific/Honolulu (UTC-10:00)">(UTC-10:00) Pacific/Honolulu</option>
+            <option value="America/Anchorage (UTC-09:00)">(UTC-09:00) America/Anchorage</option>
+            <option value="America/Los_Angeles (UTC-08:00)">(UTC-08:00) America/Los_Angeles</option>
+            <option value="America/Denver (UTC-07:00)">(UTC-07:00) America/Denver</option>
+            <option value="America/Chicago (UTC-06:00)">(UTC-06:00) America/Chicago</option>
+            <option value="America/New_York (UTC-05:00)">(UTC-05:00) America/New_York</option>
+            <option value="America/Halifax (UTC-04:00)">(UTC-04:00) America/Halifax</option>
+            <option value="America/Sao_Paulo (UTC-03:00)">(UTC-03:00) America/Sao_Paulo</option>
+            <option value="Atlantic/South_Georgia (UTC-02:00)">(UTC-02:00) Atlantic/South_Georgia</option>
+            <option value="Atlantic/Cape_Verde (UTC-01:00)">(UTC-01:00) Atlantic/Cape_Verde</option>
+            <option value="Europe/London (UTC+00:00)">(UTC+00:00) Europe/London</option>
+            <option value="Europe/Amsterdam (UTC+01:00)">(UTC+01:00) Europe/Amsterdam</option>
+            <option value="Europe/Athens (UTC+02:00)">(UTC+02:00) Europe/Athens</option>
+            <option value="Asia/Dubai (UTC+04:00)">(UTC+04:00) Asia/Dubai</option>
+            <option value="Asia/Kolkata (UTC+05:00)">(UTC+05:00) Asia/Kolkata</option>
+            <option value="Asia/Hong_Kong (UTC+08:00)">(UTC+08:00) Asia/Hong_Kong</option>
+            <option value="Asia/Tokyo (UTC+09:00)">(UTC+09:00) Asia/Tokyo</option>
+            <option value="Pacific/Guam (UTC+10:00)">(UTC+10:00) Pacific/Guam</option>
+            <option value="Pacific/Fiji (UTC+12:00)">(UTC+12:00) Pacific/Fiji</option>
+            <option value="Pacific/Auckland (UTC+13:00)">(UTC+13:00) Pacific/Auckland</option>
+            <!-- Add more timezone options as needed -->
+        </select>
+        <br>
+    
+        <!-- Time of Flight Selector -->
+        <label for="timeOfFlight">Time of Flight (HH:MM):</label>
+        <input type="text" id="timeOfFlight" name="timeOfFlight" pattern="\d{2}:\d{2}" title="Please enter a time in the format HH:MM" placeholder="00:00">
+        <br>
+    
+        <!-- Submit Button -->
+        <input type="submit" value="Submit">
+    </form>
+
+    <footer>Project XPlor </footer>
+</body>
+</html>
