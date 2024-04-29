@@ -8,6 +8,13 @@
     <title> Project Xplor </title>
 
     <script>
+        // Initialize indexToInsert if it doesn't exist in localStorage
+        if (!localStorage.getItem('indexToInsert')) {
+            localStorage.setItem('indexToInsert', 0); // Set default value
+        }
+
+        
+
         // Function to parse URL parameters
         function getUrlParams() {
             var params = {};
@@ -62,7 +69,50 @@
             console.log("Page loaded");
             var params = getUrlParams();
             console.log("URL Parameters:", params);
-            addNewTab(params.firstName, params.lastName, params.dob, params.dateOfFlight, params.flightNum, params.timezone, params.timeOfFlight);
+
+            // Check if any form data parameters are present
+            if (params.firstName !== null && params.firstName !== undefined) {
+                var formData = {
+                    firstName: params.firstName,
+                    lastName: params.lastName,
+                    dob: params.dob,
+                    dateOfFlight: params.dateOfFlight,
+                    flightNum: params.flightNum,
+                    timezone: params.timezone,
+                    timeOfFlight: params.timeOfFlight
+                };
+            }
+
+            // If formDataArray doesn't exist yet, create it
+            if (!localStorage.getItem('formDataArray')) {
+                localStorage.setItem('formDataArray', JSON.stringify([]));
+            }
+
+            // Retrieve formDataArray from localStorage
+            var formDataArray = JSON.parse(localStorage.getItem('formDataArray'));
+
+            // Store the length of formDataArray before adding new form data
+            var initialLength = formDataArray.length;
+
+            // Retrieve indexToInsert from localStorage
+            var indexToInsert = parseInt(localStorage.getItem('indexToInsert'));
+
+            // Insert new formData object at a specific index in formDataArray
+            formDataArray.splice(indexToInsert, 0, formData);
+
+            // Save updated formDataArray back to localStorage
+            localStorage.setItem('formDataArray', JSON.stringify(formDataArray));
+
+            console.log("Form Data Array:", formDataArray);
+
+            // Only add tabs for new form submissions, not on every page load
+            if (formDataArray.length > initialLength) {
+                // Loop through formDataArray and call addNewTab for each formData
+                for (var i = formDataArray.length - 1; i >= 0; i--) {
+                    var data = formDataArray[i];
+                    addNewTab(data.firstName, data.lastName, data.dob, data.dateOfFlight, data.flightNum, data.timezone, data.timeOfFlight);
+                }
+            }
         };
 
         // Function to switch tabs
@@ -99,7 +149,7 @@
 
 
     <div class="vertical-tabs">
-        <div class="tab" onclick="openTab('tab1')">Flight 1</div>
+        <!--<div class="tab" onclick="openTab('tab1')">Flight 1</div>-->
         
     </div>
 
@@ -142,7 +192,7 @@
 
     <footer>Project XPlor </footer>
 
-    <div id="tab1" class="tab-content" style="display: none;">
+    <!--<div id="tab1" class="tab-content" style="display: none;">
         <p>Firstname: Aleksandr</p>
         <p>Lastname: Samarin</p>
         <p>Date of Birth: 06/21/2003</p>
@@ -150,7 +200,7 @@
         <p>Flight Number: BA536</p>
         <p>Timezone: America/Denver (UTC-07:00)</p>
         <p>Time of Flight: 17:45</p>
-    </div>
+    </div>-->
 
     </div>
 </body>

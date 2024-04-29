@@ -219,10 +219,13 @@ nav li:active {
 
 /*Vertical Tab stuff for My Travel Hub*/
 .vertical-tabs {
-    float: left;
+    /*float: left;
     padding-left: 650px;
-    padding-right: 400px; 
+    padding-right: 400px;*/
     width: 30%;
+    margin: auto; /* Center the element horizontally */
+    padding-top: 30px;
+    /*padding-bottom: 30px;*/
 }
 
 .tab {
@@ -231,6 +234,7 @@ nav li:active {
     border: 1px solid #000000; /* Border around the tabs */
     border-radius: 4px; /* Rounded corners for tabs */
     cursor: pointer;
+    color: black;
 }
 
 .tab:hover {

@@ -21,3 +21,5 @@ State of the Hi-Fidelity prototype from this assignment:
 			These pages will also eventually have the same result once the form is submitted.
 		-As of right now, the program only holds one trip on the myTravelHub page
 		
+
+Additional Note: I emailed Prof. Lane Harrison about resubmitting on 04/26 as my addTrip.html did not have the correct stylesheet linked.
